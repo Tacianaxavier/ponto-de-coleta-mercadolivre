@@ -1,6 +1,6 @@
 # Informações sobre Pontos de Coleta 📦
 
-Página independente de informações sobre pontos de coleta associados ao Mercado Livre. Não é canal oficial, não representa nem tem vínculo com o Mercado Livre.
+Página com informações e formulário de interesse sobre pontos de coleta associados ao Mercado Livre.
 
 ## 🚀 Funcionalidades
 
