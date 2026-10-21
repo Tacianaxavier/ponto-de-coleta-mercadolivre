@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta name="description" content="Cadastre seu estabelecimento para ser um Ponto de Coleta do Mercado Livre. Veja os requisitos, benefícios e faça sua inscrição.">
+  <meta name="keywords" content="ponto de coleta mercado livre, agência coleta, cadastro estabelecimento, inscrição ponto coleta">
+  <title>Quero cadastrar meu estabelecimento para ser um ponto de coleta Mercado Livre</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ml-yellow: #FFE600;
+      --ml-blue: #3483FA;
+      --ml-blue-dark: #2968C8;
+      --ml-green: #00A650;
+      --ml-text: #333333;
+      --ml-text-secondary: rgba(0,0,0,0.55);
+      --ml-border: rgba(0,0,0,0.1);
+      --ml-bg: #EFEFEF;
+      --ml-white: #FFFFFF;
+      --ml-error: #F23D4F;
+    }
+
+    html, body {
+      font-family: 'Inter', -apple-system, Roboto, Arial, sans-serif;
+      background-color: var(--ml-bg);
+      color: var(--ml-text);
+      min-height: 100vh;
+    }
+
+    /* HEADER */
+    .nav-header {
+      background-color: var(--ml-yellow);
+      box-shadow: 0 1px 0 0 rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-bounds {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      height: 56px;
+      gap: 16px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      flex-shrink: 0;
+      font-size: 22px;
+      font-weight: 700;
+      color: rgba(0,0,0,0.88);
+      letter-spacing: -0.5px;
+    }
+
+    .nav-logo span { font-weight: 300; }
+
+    .nav-search-wrapper {
+      flex: 1;
+      max-width: 660px;
+    }
+
+    .nav-search-input {
+      width: 100%;
+      height: 40px;
+      border: none;
+      border-radius: 2px;
+      padding: 10px 16px;
+      font-size: 16px;
+      font-family: inherit;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+      outline: none;
+      color: var(--ml-text);
+    }
+
+    .nav-search-input:focus {
+      border: 1.5px solid var(--ml-blue);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-left: auto;
+    }
+
+    .nav-link {
+      font-size: 14px;
+      color: rgba(0,0,0,0.9);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover { color: #000; }
+
+    .nav-sep {
+      width: 1px;
+      height: 20px;
+      background: rgba(0,0,0,0.15);
+      margin: 0 4px;
+    }
+
+    /* BREADCRUMB */
+    .breadcrumb-bar {
+      background: var(--ml-white);
+      border-bottom: 1px solid var(--ml-border);
+    }
+
+    .breadcrumb-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--ml-text-secondary);
+    }
+
+    .breadcrumb-inner a {
+      color: var(--ml-blue);
+      text-decoration: none;
+    }
+
+    .breadcrumb-inner a:hover { text-decoration: underline; }
+
+    /* LAYOUT */
+    .main-layout {
+      max-width: 1200px;
+      margin: 24px auto;
+      padding: 0 16px;
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 24px;
+      align-items: start;
+    }
+
+    @media (max-width: 900px) {
+      .main-layout { grid-template-columns: 1fr; }
+      .sidebar-sticky { position: static; }
+    }
+
+    /* CARDS */
+    .card {
+      background: var(--ml-white);
+      border-radius: 6px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.12);
+      padding: 32px;
+      margin-bottom: 16px;
+    }
+
+    .sidebar-card {
+      background: var(--ml-white);
+      border-radius: 6px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.12);
+      padding: 24px;
+      margin-bottom: 16px;
+    }
+
+    .sidebar-sticky { position: sticky; top: 76px; }
+
+    /* ARTICLE */
+    .article-title {
+      font-size: 26px;
+      font-weight: 700;
+      color: rgba(0,0,0,0.9);
+      line-height: 1.25;
+      margin-bottom: 14px;
+    }
+
+    .article-subtitle {
+      font-size: 15px;
+      color: var(--ml-text-secondary);
+      line-height: 1.55;
+      margin-bottom: 20px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .tag-green { background: #E6F5ED; color: #00875A; }
+    .tag-blue  { background: #EBF3FF; color: var(--ml-blue-dark); }
+
+    /* INFO BANNER */
+    .info-banner {
+      background: #EBF3FF;
+      border-left: 4px solid var(--ml-blue);
+      border-radius: 4px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--ml-text);
+    }
+
+    .info-banner strong { color: var(--ml-blue-dark); font-weight: 600; }
+
+    /* SECTION TITLES */
+    .section-title {
+      font-size: 19px;
+      font-weight: 700;
+      color: rgba(0,0,0,0.9);
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--ml-border);
+    }
+
+    .divider { border: none; border-top: 1px solid var(--ml-border); margin: 24px 0; }
+
+    /* STEPS */
+    .step-item {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 18px;
+      align-items: flex-start;
+    }
+
+    .step-number {
+      width: 30px;
+      height: 30px;
+      background: var(--ml-blue);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .step-content h4 { font-size: 14px; font-weight: 600; color: rgba(0,0,0,0.9); margin-bottom: 3px; }
+    .step-content p { font-size: 13px; color: var(--ml-text-secondary); line-height: 1.5; }
+
+    /* REQUIREMENTS */
+    .requirements-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 580px) { .requirements-grid { grid-template-columns: 1fr; } }
+
+    .req-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 11px 13px;
+      background: #F8F9FA;
+      border-radius: 6px;
+      border: 1px solid #E9ECEF;
+    }
+
+    .req-check {
+      width: 19px; height: 19px;
+      background: var(--ml-green);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 1px;
+    }
+
+    .req-check::after {
+      content: '';
+      width: 5px; height: 8px;
+      border: 2px solid white;
+      border-top: none; border-left: none;
+      transform: rotate(45deg) translate(-1px,-1px);
+      display: block;
+    }
+
+    .req-text { font-size: 13px; line-height: 1.4; }
+
+    /* BENEFITS */
+    .benefits-list { list-style: none; margin-bottom: 16px; }
+
+    .benefits-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid #F0F0F0;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .benefits-list li:last-child { border-bottom: none; }
+
+    .benefit-icon { font-size: 17px; flex-shrink: 0; margin-top: 1px; }
+
+    .benefit-title { font-size: 14px; font-weight: 600; display: block; }
+    .benefit-desc { font-size: 13px; color: var(--ml-text-secondary); margin-top: 2px; }
+
+    /* FORM */
+    .form-title { font-size: 21px; font-weight: 700; color: rgba(0,0,0,0.9); margin-bottom: 6px; }
+    .form-desc { font-size: 13px; color: var(--ml-text-secondary); margin-bottom: 20px; line-height: 1.5; }
+
+    /* PROGRESS */
+    .progress-wrap { margin-bottom: 22px; }
+
+    .progress-steps {
+      display: flex;
+      align-items: center;
+    }
+
+    .p-step { display: flex; align-items: center; gap: 6px; }
+
+    .p-dot {
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 700; flex-shrink: 0;
+      transition: all 0.3s;
+    }
+
+    .p-dot.active { background: var(--ml-blue); color: white; }
+    .p-dot.done { background: var(--ml-green); color: white; }
+    .p-dot.idle { background: #E0E0E0; color: #999; }
+
+    .p-label { font-size: 11px; font-weight: 500; color: var(--ml-text-secondary); white-space: nowrap; }
+    .p-label.active { color: var(--ml-blue); font-weight: 700; }
+
+    .p-line {
+      flex: 1;
+      height: 2px;
+      background: #E0E0E0;
+      margin: 0 6px;
+      transition: background 0.3s;
+    }
+
+    .p-line.filled { background: var(--ml-green); }
+
+    /* FORM FIELDS */
+    .form-group { margin-bottom: 18px; }
+
+    .form-label {
+      display: block;
+      font-size: 14px; font-weight: 500;
+      color: rgba(0,0,0,0.8);
+      margin-bottom: 5px;
+    }
+
+    .form-label .req { color: var(--ml-error); margin-left: 2px; }
+
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      padding: 11px 13px;
+      border: 1px solid rgba(0,0,0,0.25);
+      border-radius: 6px;
+      font-size: 16px;
+      font-family: inherit;
+      color: var(--ml-text);
+      background: white;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--ml-blue);
+      box-shadow: 0 0 0 3px rgba(52,131,250,0.18);
+    }
+
+    .form-input.err, .form-select.err, .form-textarea.err {
+      border-color: var(--ml-error);
+      box-shadow: 0 0 0 3px rgba(242,61,79,0.12);
+    }
+
+    .form-input.ok, .form-select.ok, .form-textarea.ok {
+      border-color: var(--ml-green);
+    }
+
+    .form-select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 36px;
+      cursor: pointer;
+    }
+
+    .form-textarea { resize: vertical; min-height: 85px; }
+
+    .field-hint { font-size: 12px; color: var(--ml-text-secondary); margin-top: 3px; }
+    .field-err { font-size: 12px; color: var(--ml-error); margin-top: 3px; display: none; }
+    .field-err.show { display: block; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    @media (max-width: 580px) { .form-row { grid-template-columns: 1fr; } }
+
+    /* CHECKBOXES */
+    .check-group { display: flex; flex-direction: column; gap: 9px; }
+
+    .check-item {
+      display: flex; align-items: flex-start; gap: 9px; cursor: pointer;
+    }
+
+    .check-item input[type="checkbox"] {
+      width: 17px; height: 17px;
+      accent-color: var(--ml-blue);
+      cursor: pointer; flex-shrink: 0; margin-top: 2px;
+    }
+
+    .check-item label { font-size: 14px; color: var(--ml-text); cursor: pointer; line-height: 1.4; }
+
+    /* TERMS */
+    .terms-row {
+      display: flex; align-items: flex-start; gap: 9px; margin-top: 6px;
+    }
+
+    .terms-row input[type="checkbox"] {
+      width: 17px; height: 17px;
+      accent-color: var(--ml-blue);
+      flex-shrink: 0; margin-top: 2px; cursor: pointer;
+    }
+
+    .terms-row label {
+      font-size: 13px; color: var(--ml-text-secondary); line-height: 1.5; cursor: pointer;
+    }
+
+    .terms-row label a { color: var(--ml-blue); text-decoration: none; }
+    .terms-row label a:hover { text-decoration: underline; }
+
+    /* FIELDSET LEGEND */
+    .step-legend {
+      font-size: 15px; font-weight: 700;
+      color: rgba(0,0,0,0.9);
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--ml-blue);
+      display: block; width: 100%;
+    }
+
+    /* BUTTONS */
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 12px 28px;
+      background: var(--ml-blue); color: white;
+      border: none; border-radius: 6px;
+      font-size: 15px; font-weight: 600; font-family: inherit;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      text-decoration: none;
+    }
+
+    .btn-primary:hover { background: var(--ml-blue-dark); }
+    .btn-primary:active { transform: scale(0.98); }
+    .btn-primary:disabled { background: rgba(0,0,0,0.25); cursor: not-allowed; transform: none; }
+
+    .btn-outline {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 12px 24px;
+      background: transparent; color: var(--ml-blue);
+      border: 1.5px solid var(--ml-blue);
+      border-radius: 6px;
+      font-size: 15px; font-weight: 600; font-family: inherit;
+      cursor: pointer; text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-outline:hover { background: #EBF3FF; }
+
+    .btn-wpp {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      width: 100%; padding: 13px 20px;
+      background: #25D366; color: white;
+      border: none; border-radius: 6px;
+      font-size: 15px; font-weight: 600; font-family: inherit;
+      cursor: pointer; text-decoration: none;
+      box-shadow: 0 4px 12px rgba(37,211,102,0.35);
+      transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+    }
+
+    .btn-wpp:hover { background: #128C7E; box-shadow: 0 4px 18px rgba(37,211,102,0.5); }
+    .btn-wpp:active { transform: scale(0.98); }
+    .btn-wpp svg { width: 20px; height: 20px; flex-shrink: 0; }
+
+    /* STEP NAV */
+    .step-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 12px;
+      gap: 10px;
+    }
+
+    /* SUMMARY */
+    .summary-box {
+      background: #F8F9FA;
+      border: 1px solid #E9ECEF;
+      border-radius: 8px;
+      padding: 18px;
+      margin-bottom: 18px;
+      font-size: 13px;
+      color: var(--ml-text-secondary);
+      line-height: 1.8;
+    }
+
+    .summary-box h3 { font-size: 14px; font-weight: 600; color: rgba(0,0,0,0.9); margin-bottom: 10px; }
+
+    .summary-box td:first-child { font-weight: 600; color: rgba(0,0,0,0.75); padding-right: 12px; width: 38%; vertical-align: top; padding-top: 4px; }
+    .summary-box td { padding-top: 4px; }
+
+    /* SUCCESS */
+    #success-screen { display: none; text-align: center; padding: 36px 20px; }
+
+    .success-circle {
+      width: 68px; height: 68px;
+      background: var(--ml-green);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 18px;
+      font-size: 32px; color: white;
+      animation: pop-in 0.4s ease;
+    }
+
+    @keyframes pop-in {
+      0% { transform: scale(0); opacity: 0; }
+      70% { transform: scale(1.1); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .success-title { font-size: 22px; font-weight: 700; margin-bottom: 12px; color: rgba(0,0,0,0.9); }
+    .success-msg { font-size: 14px; color: var(--ml-text-secondary); line-height: 1.65; margin-bottom: 28px; max-width: 460px; margin-left: auto; margin-right: auto; }
+
+    .success-actions { display: flex; flex-direction: column; gap: 10px; max-width: 340px; margin: 0 auto; }
+
+    /* LOADING SPINNER */
+    .spinner {
+      display: none;
+      width: 18px; height: 18px;
+      border: 2px solid rgba(255,255,255,0.4);
+      border-top-color: white;
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* SIDEBAR */
+    .sidebar-card-title { font-size: 15px; font-weight: 600; color: rgba(0,0,0,0.9); margin-bottom: 14px; }
+
+    .contact-row {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 0; border-top: 1px solid #F0F0F0;
+      margin-top: 10px;
+    }
+
+    .contact-icon {
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      background: #E6F5ED;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px; flex-shrink: 0;
+    }
+
+    .contact-info strong { font-size: 14px; font-weight: 600; display: block; }
+    .contact-info span { font-size: 12px; color: var(--ml-text-secondary); }
+
+    details summary {
+      cursor: pointer;
+      font-size: 13px; font-weight: 600;
+      color: rgba(0,0,0,0.85);
+      line-height: 1.4;
+      list-style: none;
+      padding: 9px 0;
+      border-bottom: 1px solid #F0F0F0;
+      -webkit-user-select: none; user-select: none;
+    }
+
+    details summary::-webkit-details-marker { display: none; }
+
+    details summary::after {
+      content: '+';
+      float: right;
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--ml-text-secondary);
+    }
+
+    details[open] summary::after { content: '−'; }
+
+    details p {
+      font-size: 13px; color: var(--ml-text-secondary);
+      line-height: 1.55; padding: 9px 0 4px;
+    }
+
+    .stats-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+    }
+
+    .stat-cell {
+      text-align: center; padding: 11px 8px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 8px;
+    }
+
+    .stat-cell .val { font-size: 20px; font-weight: 700; color: white; }
+    .stat-cell .lbl { font-size: 11px; color: rgba(255,255,255,0.8); margin-top: 2px; }
+
+    /* FLOATING WHATSAPP */
+    .float-wpp {
+      position: fixed;
+      bottom: 26px; right: 26px;
+      z-index: 999;
+      display: flex; align-items: center; gap: 9px;
+      background: #25D366; color: white;
+      padding: 13px 18px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700; font-size: 14px;
+      box-shadow: 0 4px 18px rgba(37,211,102,0.5), 0 2px 6px rgba(0,0,0,0.12);
+      transition: all 0.25s ease;
+      animation: wpp-pulse 2.5s infinite;
+    }
+
+    .float-wpp:hover {
+      background: #128C7E;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(37,211,102,0.6);
+    }
+
+    .float-wpp svg { width: 20px; height: 20px; flex-shrink: 0; }
+
+    @keyframes wpp-pulse {
+      0%, 100% { box-shadow: 0 4px 18px rgba(37,211,102,0.5), 0 2px 6px rgba(0,0,0,0.12); }
+      50% { box-shadow: 0 4px 26px rgba(37,211,102,0.75), 0 2px 6px rgba(0,0,0,0.12); }
+    }
+
+    @media (max-width: 580px) {
+      .float-wpp .float-wpp-text { display: none; }
+      .float-wpp { border-radius: 50%; padding: 14px; }
+      .card { padding: 20px 16px; }
+      .article-title { font-size: 20px; }
+      .nav-search-wrapper { display: none; }
+      .nav-actions .nav-sep, .nav-actions .nav-link:not(:first-child) { display: none; }
+    }
+
+    /* FOOTER */
+    .site-footer {
+      background: #F5F5F5;
+      border-top: 1px solid #E0E0E0;
+      padding: 28px 16px;
+      margin-top: 32px;
+    }
+
+    .footer-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start;
+    }
+
+    .footer-logo { font-size: 18px; font-weight: 700; color: rgba(0,0,0,0.6); letter-spacing: -0.3px; }
+    .footer-logo span { font-weight: 300; }
+
+    .footer-links { display: flex; flex-wrap: wrap; gap: 14px; font-size: 12px; }
+    .footer-links a { color: rgba(0,0,0,0.55); text-decoration: none; }
+    .footer-links a:hover { color: #000; }
+
+    .footer-copy { font-size: 12px; color: rgba(0,0,0,0.4); margin-top: 6px; }
+  </style>
+</head>
+<body>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/5511972347829?text=Ol%C3%A1!%20Quero%20cadastrar%20meu%20estabelecimento%20como%20Ponto%20de%20Coleta%20Mercado%20Livre."
+   class="float-wpp" target="_blank" rel="noopener noreferrer" id="float-wpp" aria-label="Falar pelo WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <span class="float-wpp-text">Falar pelo WhatsApp</span>
+</a>
+
+<!-- HEADER -->
+<header class="nav-header" role="banner">
+  <div class="nav-bounds">
+    <a href="#" class="nav-logo" aria-label="Mercado Livre">mercado<span>livre</span></a>
+    <div class="nav-search-wrapper">
+      <input type="search" class="nav-search-input" placeholder="Buscar no Mercado Livre" aria-label="Buscar">
+    </div>
+    <nav class="nav-actions" aria-label="Navegação">
+      <a href="#" class="nav-link">Entrar</a>
+      <div class="nav-sep" aria-hidden="true"></div>
+      <a href="#" class="nav-link">Criar conta</a>
+      <div class="nav-sep" aria-hidden="true"></div>
+      <a href="#" class="nav-link">Vender</a>
+      <div class="nav-sep" aria-hidden="true"></div>
+      <a href="#" class="nav-link">Ajuda</a>
+    </nav>
+  </div>
+</header>
+
+<!-- BREADCRUMB -->
+<nav class="breadcrumb-bar" aria-label="Localização na página">
+  <div class="breadcrumb-inner">
+    <a href="#">Central de Ajuda</a>
+    <span aria-hidden="true">›</span>
+    <a href="#">Envios</a>
+    <span aria-hidden="true">›</span>
+    <span aria-current="page">Ponto de Coleta — Inscrição</span>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<main class="main-layout" role="main">
+
+  <!-- LEFT -->
+  <div>
+
+    <article class="card" aria-labelledby="titulo-pagina">
+      <span class="tag tag-green">✨ Programa Oficial</span>
+      <h1 class="article-title" id="titulo-pagina">Quero cadastrar meu estabelecimento para ser um ponto de coleta Mercado Livre</h1>
+      <p class="article-subtitle">Torne seu negócio um Ponto de Coleta oficial do Mercado Livre, receba renda extra e atraia mais clientes para seu estabelecimento.</p>
+
+      <div class="info-banner" role="note">
+        <span aria-hidden="true" style="font-size:18px; flex-shrink:0;">ℹ️</span>
+        <p><strong>Sobre o programa:</strong> Pontos de Coleta são estabelecimentos parceiros que recebem e guardam pacotes para que os compradores retirem quando quiserem. Uma forma de aumentar a comodidade para quem compra e gerar renda extra para o seu negócio — sem custo de adesão.</p>
+      </div>
+
+      <!-- COMO FUNCIONA -->
+      <section aria-labelledby="como-funciona-h">
+        <h2 class="section-title" id="como-funciona-h">Como funciona o Ponto de Coleta</h2>
+        <div class="step-item">
+          <div class="step-number" aria-hidden="true">1</div>
+          <div class="step-content">
+            <h4>Cadastre seu estabelecimento</h4>
+            <p>Preencha o formulário abaixo com os dados do seu negócio. Nossa equipe analisará em até 5 dias úteis.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-number" aria-hidden="true">2</div>
+          <div class="step-content">
+            <h4>Aprovação e integração</h4>
+            <p>Após aprovação você recebe kit completo: material de identificação visual, scanner e acesso ao treinamento online.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-number" aria-hidden="true">3</div>
+          <div class="step-content">
+            <h4>Comece a receber pacotes</h4>
+            <p>Guarde as encomendas com segurança. Os compradores são notificados para retirar no seu estabelecimento.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-number" aria-hidden="true">4</div>
+          <div class="step-content">
+            <h4>Receba seus pagamentos</h4>
+            <p>Os valores são creditados automaticamente na sua conta Mercado Pago mensalmente, sem burocracia.</p>
+          </div>
+        </div>
+      </section>
+
+      <hr class="divider">
+
+      <!-- REQUISITOS -->
+      <section aria-labelledby="requisitos-h">
+        <h2 class="section-title" id="requisitos-h">Requisitos para participar</h2>
+        <p style="font-size:13px; color:var(--ml-text-secondary); margin-bottom:14px; line-height:1.5;">Para garantir a melhor experiência, seu estabelecimento precisa atender aos critérios abaixo:</p>
+        <div class="requirements-grid" role="list">
+          <div class="req-item" role="listitem"><div class="req-check" aria-hidden="true"></div><p class="req-text">Estabelecimento físico com CNPJ ativo</p></div>
+          <div class="req-item" role="listitem"><div class="req-check" aria-hidden="true"></div><p class="req-text">Espaço para armazenar pacotes com segurança</p></div>
+          <div class="req-item" role="listitem"><div class="req-check" aria-hidden="true"></div><p class="req-text">Funcionamento mínimo de 6h/dia, 5 dias/semana</p></div>
+          <div class="req-item" role="listitem"><div class="req-check" aria-hidden="true"></div><p class="req-text">Acesso à internet estável para usar o sistema</p></div>
+          <div class="req-item" role="listitem"><div class="req-check" aria-hidden="true"></div><p class="req-text">Localização de fácil acesso para os clientes</p></div>
+          <div class="req-item" role="listitem"><div class="req-check" aria-hidden="true"></div><p class="req-text">Responsável treinado para receber e entregar pacotes</p></div>
+          <div class="req-item" role="listitem"><div class="req-check" aria-hidden="true"></div><p class="req-text">Conta Mercado Pago para receber pagamentos</p></div>
+          <div class="req-item" role="listitem"><div class="req-check" aria-hidden="true"></div><p class="req-text">Capacidade mínima para 50 pacotes simultâneos</p></div>
+        </div>
+      </section>
+
+      <hr class="divider">
+
+      <!-- BENEFÍCIOS -->
+      <section aria-labelledby="beneficios-h">
+        <h2 class="section-title" id="beneficios-h">Benefícios de ser um Ponto de Coleta</h2>
+        <ul class="benefits-list">
+          <li>
+            <span class="benefit-icon" aria-hidden="true">💰</span>
+            <div><strong class="benefit-title">Renda extra garantida</strong><span class="benefit-desc">Receba por cada pacote custodiado. Sem custo de adesão ou mensalidade.</span></div>
+          </li>
+          <li>
+            <span class="benefit-icon" aria-hidden="true">🚶</span>
+            <div><strong class="benefit-title">Mais clientes no seu estabelecimento</strong><span class="benefit-desc">Compradores que retiram pacotes podem se tornar clientes regulares do seu negócio.</span></div>
+          </li>
+          <li>
+            <span class="benefit-icon" aria-hidden="true">🔒</span>
+            <div><strong class="benefit-title">Segurança e tecnologia</strong><span class="benefit-desc">Sistema digital de controle com rastreamento em tempo real para compradores e vendedores.</span></div>
+          </li>
+          <li>
+            <span class="benefit-icon" aria-hidden="true">📣</span>
+            <div><strong class="benefit-title">Visibilidade no app Mercado Livre</strong><span class="benefit-desc">Seu estabelecimento aparece no mapa do app, gerando exposição para milhões de usuários.</span></div>
+          </li>
+          <li>
+            <span class="benefit-icon" aria-hidden="true">🏆</span>
+            <div><strong class="benefit-title">Suporte dedicado</strong><span class="benefit-desc">Equipe de suporte disponível para ajudar com dúvidas e problemas operacionais.</span></div>
+          </li>
+        </ul>
+      </section>
+    </article>
+
+    <!-- FORM CARD -->
+    <div class="card" id="form-card">
+      <div id="form-container">
+        <div style="border-top: 3px solid var(--ml-yellow); margin: -32px -32px 24px; padding: 20px 32px; background: #FFFDE7; border-radius: 6px 6px 0 0;">
+          <h2 class="form-title" id="form-titulo">📋 Formulário de Inscrição</h2>
+          <p class="form-desc">Preencha os dados abaixo para solicitar seu credenciamento. Campos com <span style="color:var(--ml-error); font-weight:600;">*</span> são obrigatórios.</p>
+        </div>
+
+        <!-- PROGRESS -->
+        <div class="progress-wrap" aria-label="Progresso do formulário">
+          <div class="progress-steps">
+            <div class="p-step">
+              <div class="p-dot active" id="dot-1">1</div>
+              <span class="p-label active" id="lbl-1">Dados pessoais</span>
+            </div>
+            <div class="p-line" id="line-1"></div>
+            <div class="p-step">
+              <div class="p-dot idle" id="dot-2">2</div>
+              <span class="p-label" id="lbl-2">Estabelecimento</span>
+            </div>
+            <div class="p-line" id="line-2"></div>
+            <div class="p-step">
+              <div class="p-dot idle" id="dot-3">3</div>
+              <span class="p-label" id="lbl-3">Endereço</span>
+            </div>
+            <div class="p-line" id="line-3"></div>
+            <div class="p-step">
+              <div class="p-dot idle" id="dot-4">4</div>
+              <span class="p-label" id="lbl-4">Confirmação</span>
+            </div>
+          </div>
+        </div>
+
+        <form id="reg-form" novalidate autocomplete="on">
+
+          <!-- STEP 1 -->
+          <fieldset id="step-1" style="border:none;padding:0;">
+            <legend class="step-legend">👤 Dados do Responsável</legend>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="f-nome">Nome completo <span class="req">*</span></label>
+                <input type="text" id="f-nome" name="nome" class="form-input" placeholder="Seu nome completo" autocomplete="name" required>
+                <span class="field-err" id="e-nome">Informe seu nome completo (nome e sobrenome).</span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="f-cpf">CPF <span class="req">*</span></label>
+                <input type="text" id="f-cpf" name="cpf" class="form-input" placeholder="000.000.000-00" maxlength="14" required>
+                <span class="field-err" id="e-cpf">Informe um CPF válido (11 dígitos).</span>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="f-email">E-mail <span class="req">*</span></label>
+                <input type="email" id="f-email" name="email" class="form-input" placeholder="seu@email.com" autocomplete="email" required>
+                <span class="field-err" id="e-email">Informe um e-mail válido.</span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="f-tel">Telefone / WhatsApp <span class="req">*</span></label>
+                <input type="tel" id="f-tel" name="telefone" class="form-input" placeholder="(00) 00000-0000" maxlength="15" autocomplete="tel" required>
+                <span class="field-err" id="e-tel">Informe um telefone válido.</span>
+              </div>
+            </div>
+            <div class="form-group" style="max-width:260px;">
+              <label class="form-label" for="f-nasc">Data de nascimento</label>
+              <input type="date" id="f-nasc" name="nascimento" class="form-input" autocomplete="bday">
+            </div>
+            <div class="step-nav" style="justify-content:flex-end;">
+              <button type="button" class="btn-primary" onclick="goStep(2)">Continuar →</button>
+            </div>
+          </fieldset>
+
+          <!-- STEP 2 -->
+          <fieldset id="step-2" style="border:none;padding:0;display:none;">
+            <legend class="step-legend">🏪 Dados do Estabelecimento</legend>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="f-estab">Nome do estabelecimento <span class="req">*</span></label>
+                <input type="text" id="f-estab" name="nome_estab" class="form-input" placeholder="Nome da loja / empresa" required>
+                <span class="field-err" id="e-estab">Informe o nome do estabelecimento.</span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="f-cnpj">CNPJ <span class="req">*</span></label>
+                <input type="text" id="f-cnpj" name="cnpj" class="form-input" placeholder="00.000.000/0000-00" maxlength="18" required>
+                <span class="field-err" id="e-cnpj">Informe um CNPJ válido.</span>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="f-tipo">Tipo de negócio <span class="req">*</span></label>
+                <select id="f-tipo" name="tipo" class="form-select" required>
+                  <option value="" disabled selected>Selecione o tipo</option>
+                  <option value="mercado">Mercado / Mercearia</option>
+                  <option value="farmacia">Farmácia / Drogaria</option>
+                  <option value="papelaria">Papelaria / Livraria</option>
+                  <option value="pet">Pet Shop</option>
+                  <option value="bazar">Bazar / Artigos gerais</option>
+                  <option value="conveniencia">Loja de conveniência</option>
+                  <option value="informatica">Informática / Eletrônicos</option>
+                  <option value="vestuario">Vestuário / Confecção</option>
+                  <option value="servicos">Serviços (lavanderia, etc.)</option>
+                  <option value="outro">Outro</option>
+                </select>
+                <span class="field-err" id="e-tipo">Selecione o tipo de negócio.</span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="f-horario">Horário de funcionamento <span class="req">*</span></label>
+                <select id="f-horario" name="horario" class="form-select" required>
+                  <option value="" disabled selected>Selecione o horário</option>
+                  <option value="6h-12h">06h às 12h</option>
+                  <option value="8h-17h">08h às 17h</option>
+                  <option value="8h-18h">08h às 18h</option>
+                  <option value="8h-20h">08h às 20h</option>
+                  <option value="9h-18h">09h às 18h</option>
+                  <option value="9h-20h">09h às 20h</option>
+                  <option value="10h-22h">10h às 22h</option>
+                  <option value="24h">24 horas</option>
+                </select>
+                <span class="field-err" id="e-horario">Selecione o horário de funcionamento.</span>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="f-dias">Dias de funcionamento <span class="req">*</span></label>
+                <select id="f-dias" name="dias" class="form-select" required>
+                  <option value="" disabled selected>Selecione</option>
+                  <option value="seg-sex">Segunda a Sexta</option>
+                  <option value="seg-sab">Segunda a Sábado</option>
+                  <option value="seg-dom">Segunda a Domingo</option>
+                  <option value="seg-sabdom">Seg.–Sáb. + Dom. (meio período)</option>
+                </select>
+                <span class="field-err" id="e-dias">Selecione os dias de funcionamento.</span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="f-cap">Capacidade estimada de pacotes <span class="req">*</span></label>
+                <select id="f-cap" name="capacidade" class="form-select" required>
+                  <option value="" disabled selected>Selecione</option>
+                  <option value="50-100">50 a 100 pacotes</option>
+                  <option value="100-200">100 a 200 pacotes</option>
+                  <option value="200-500">200 a 500 pacotes</option>
+                  <option value="500+">Mais de 500 pacotes</option>
+                </select>
+                <span class="field-err" id="e-cap">Selecione a capacidade estimada.</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Infraestrutura disponível</label>
+              <div class="check-group">
+                <label class="check-item"><input type="checkbox" name="infra" value="internet" id="ci1"><label for="ci1">Acesso à internet (Wi-Fi ou dados)</label></label>
+                <label class="check-item"><input type="checkbox" name="infra" value="camera" id="ci2"><label for="ci2">Câmera de segurança (CFTV)</label></label>
+                <label class="check-item"><input type="checkbox" name="infra" value="estante" id="ci3"><label for="ci3">Prateleiras ou espaço organizado para armazenamento</label></label>
+                <label class="check-item"><input type="checkbox" name="infra" value="computador" id="ci4"><label for="ci4">Computador ou tablet disponível</label></label>
+                <label class="check-item"><input type="checkbox" name="infra" value="caixa" id="ci5"><label for="ci5">Sistema de caixa / PDV instalado</label></label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="f-desc">Descreva brevemente seu estabelecimento</label>
+              <textarea id="f-desc" name="descricao" class="form-textarea" placeholder="Ex: Mercearia familiar aberta há 5 anos, grande fluxo de clientes diários..."></textarea>
+            </div>
+            <div class="step-nav">
+              <button type="button" class="btn-outline" onclick="goStep(1)">← Voltar</button>
+              <button type="button" class="btn-primary" onclick="goStep(3)">Continuar →</button>
+            </div>
+          </fieldset>
+
+          <!-- STEP 3 -->
+          <fieldset id="step-3" style="border:none;padding:0;display:none;">
+            <legend class="step-legend">📍 Endereço do Estabelecimento</legend>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="f-cep">CEP <span class="req">*</span></label>
+                <input type="text" id="f-cep" name="cep" class="form-input" placeholder="00000-000" maxlength="9" required>
+                <span class="field-hint">O endereço será preenchido automaticamente.</span>
+                <span class="field-err" id="e-cep">Informe um CEP válido.</span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="f-uf">Estado <span class="req">*</span></label>
+                <select id="f-uf" name="estado" class="form-select" required>
+                  <option value="" disabled selected>UF</option>
+                  <option>AC</option><option>AL</option><option>AP</option><option>AM</option>
+                  <option>BA</option><option>CE</option><option>DF</option><option>ES</option>
+                  <option>GO</option><option>MA</option><option>MT</option><option>MS</option>
+                  <option>MG</option><option>PA</option><option>PB</option><option>PR</option>
+                  <option>PE</option><option>PI</option><option>RJ</option><option>RN</option>
+                  <option>RS</option><option>RO</option><option>RR</option><option>SC</option>
+                  <option>SP</option><option>SE</option><option>TO</option>
+                </select>
+                <span class="field-err" id="e-uf">Selecione o estado.</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="f-cidade">Cidade <span class="req">*</span></label>
+              <input type="text" id="f-cidade" name="cidade" class="form-input" placeholder="Sua cidade" autocomplete="address-level2" required>
+              <span class="field-err" id="e-cidade">Informe a cidade.</span>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="f-rua">Rua / Avenida <span class="req">*</span></label>
+                <input type="text" id="f-rua" name="endereco" class="form-input" placeholder="Nome da rua ou avenida" autocomplete="street-address" required>
+                <span class="field-err" id="e-rua">Informe o endereço.</span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="f-num">Número <span class="req">*</span></label>
+                <input type="text" id="f-num" name="numero" class="form-input" placeholder="Nº" required>
+                <span class="field-err" id="e-num">Informe o número.</span>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="f-bairro">Bairro <span class="req">*</span></label>
+                <input type="text" id="f-bairro" name="bairro" class="form-input" placeholder="Seu bairro" required>
+                <span class="field-err" id="e-bairro">Informe o bairro.</span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="f-comp">Complemento</label>
+                <input type="text" id="f-comp" name="complemento" class="form-input" placeholder="Apto, Sala, Loja...">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="f-ref">Ponto de referência</label>
+              <input type="text" id="f-ref" name="referencia" class="form-input" placeholder="Ex: Próximo ao Banco X, em frente à praça...">
+            </div>
+            <div class="step-nav">
+              <button type="button" class="btn-outline" onclick="goStep(2)">← Voltar</button>
+              <button type="button" class="btn-primary" onclick="goStep(4)">Continuar →</button>
+            </div>
+          </fieldset>
+
+          <!-- STEP 4 -->
+          <fieldset id="step-4" style="border:none;padding:0;display:none;">
+            <legend class="step-legend">✅ Confirmação e Envio</legend>
+
+            <div class="info-banner" style="margin-bottom:16px;">
+              <span style="font-size:18px; flex-shrink:0;" aria-hidden="true">📋</span>
+              <p>Revise seus dados antes de enviar. Após o envio, nossa equipe entrará em contato em até <strong>5 dias úteis</strong>.</p>
+            </div>
+
+            <div class="summary-box" id="summary-box">
+              <h3>Resumo da inscrição</h3>
+              <div id="summary-content"></div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="f-como">Como você conheceu o programa? <span class="req">*</span></label>
+              <select id="f-como" name="como_conheceu" class="form-select" required>
+                <option value="" disabled selected>Selecione</option>
+                <option value="whatsapp">WhatsApp / Indicação</option>
+                <option value="instagram">Instagram</option>
+                <option value="facebook">Facebook</option>
+                <option value="google">Google</option>
+                <option value="email">E-mail</option>
+                <option value="representante">Contato de um representante</option>
+                <option value="outro">Outro</option>
+              </select>
+              <span class="field-err" id="e-como">Selecione uma opção.</span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="f-obs">Observações adicionais</label>
+              <textarea id="f-obs" name="observacoes" class="form-textarea" placeholder="Alguma informação adicional que deseja compartilhar?"></textarea>
+            </div>
+
+            <div class="form-group">
+              <div class="terms-row">
+                <input type="checkbox" id="f-termos" name="termos" required>
+                <label for="f-termos">Li e concordo com os <a href="#" onclick="return false;">Termos e Condições</a> do Programa de Pontos de Coleta Mercado Livre e estou ciente de que meus dados serão usados para análise da candidatura. <span style="color:var(--ml-error);">*</span></label>
+              </div>
+              <span class="field-err" id="e-termos">Você precisa aceitar os termos para continuar.</span>
+            </div>
+
+            <div class="form-group">
+              <div class="terms-row">
+                <input type="checkbox" id="f-contato" name="contato">
+                <label for="f-contato">Autorizo contato via WhatsApp, e-mail ou telefone para dar andamento ao cadastro.</label>
+              </div>
+            </div>
+
+            <div class="step-nav">
+              <button type="button" class="btn-outline" onclick="goStep(3)">← Voltar</button>
+              <button type="submit" class="btn-primary" id="btn-submit" style="padding: 13px 32px;">
+                <span id="btn-txt">🚀 Enviar Inscrição</span>
+                <div class="spinner" id="btn-spin"></div>
+              </button>
+            </div>
+          </fieldset>
+
+        </form>
+      </div>
+
+      <!-- SUCCESS -->
+      <div id="success-screen" role="region" aria-live="polite">
+        <div class="success-circle" aria-hidden="true">✓</div>
+        <h2 class="success-title">Inscrição enviada com sucesso! 🎉</h2>
+        <p class="success-msg">
+          Recebemos sua solicitação para se tornar um Ponto de Coleta Mercado Livre.<br><br>
+          Nossa equipe analisará seus dados e entrará em contato em até <strong>5 dias úteis</strong> pelo e-mail e telefone informados.<br><br>
+          Para agilizar o processo, fale diretamente conosco pelo WhatsApp!
+        </p>
+        <div class="success-actions">
+          <a href="#" class="btn-wpp" id="wpp-success" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Confirmar via WhatsApp
+          </a>
+          <button type="button" class="btn-outline" onclick="resetForm()">Fazer nova inscrição</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SIDEBAR -->
+  <aside aria-label="Informações adicionais">
+    <div class="sidebar-sticky">
+
+      <div class="sidebar-card">
+        <h2 class="sidebar-card-title">💬 Fale com nossa equipe</h2>
+        <p style="font-size:13px; color:var(--ml-text-secondary); line-height:1.5; margin-bottom:14px;">Dúvidas sobre o programa? Nossa equipe está pronta para te ajudar!</p>
+        <a href="https://wa.me/5511972347829?text=Ol%C3%A1!%20Tenho%20interesse%20em%20cadastrar%20meu%20estabelecimento%20como%20Ponto%20de%20Coleta%20Mercado%20Livre.%20Pode%20me%20ajudar%3F"
+           class="btn-wpp" id="sidebar-wpp" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Chamar no WhatsApp
+        </a>
+        <div class="contact-row">
+          <div class="contact-icon" aria-hidden="true">📞</div>
+          <div class="contact-info">
+            <strong>+55 11 97234-7829</strong>
+            <span>WhatsApp disponível</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-card">
+        <h2 class="sidebar-card-title">❓ Perguntas frequentes</h2>
+        <details>
+          <summary>Quanto tempo demora a aprovação?</summary>
+          <p>O processo de análise leva até 5 dias úteis após o envio do formulário. Você receberá um contato pelo WhatsApp e e-mail informados.</p>
+        </details>
+        <details>
+          <summary>Qual é o custo para participar?</summary>
+          <p>O programa é totalmente gratuito! Não há custo de adesão ou mensalidade. Você recebe pagamentos por cada pacote custodiado.</p>
+        </details>
+        <details>
+          <summary>Preciso ter Mercado Pago?</summary>
+          <p>Sim. Os pagamentos são processados pelo Mercado Pago. Se ainda não tem conta, você pode criar gratuitamente durante o processo.</p>
+        </details>
+        <details>
+          <summary>Como funciona o treinamento?</summary>
+          <p>Após aprovação, você recebe acesso a vídeos curtos e objetivos que explicam todo o processo operacional, na plataforma online.</p>
+        </details>
+      </div>
+
+      <div class="sidebar-card" style="background:linear-gradient(135deg,#3483FA 0%,#1a5fc7 100%); color:white;">
+        <h2 style="font-size:15px;font-weight:700;margin-bottom:14px;color:white;">📊 O programa em números</h2>
+        <div class="stats-grid">
+          <div class="stat-cell"><div class="val">+5.000</div><div class="lbl">Pontos ativos</div></div>
+          <div class="stat-cell"><div class="val">+30mi</div><div class="lbl">Entregas/ano</div></div>
+          <div class="stat-cell"><div class="val" style="color:#FFE600;">★★★★★</div><div class="lbl">Satisfação</div></div>
+          <div class="stat-cell"><div class="val">0%</div><div class="lbl">Custo adesão</div></div>
+        </div>
+      </div>
+
+    </div>
+  </aside>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">mercado<span>livre</span></div>
+      <p class="footer-copy">© 2024 Mercado Livre S.A. — CNPJ: 03.007.331/0001-41</p>
+    </div>
+    <nav class="footer-links" aria-label="Links do rodapé">
+      <a href="#">Central de Ajuda</a>
+      <a href="#">Termos e condições</a>
+      <a href="#">Privacidade</a>
+      <a href="#">Acessibilidade</a>
+      <a href="#">Trabalhe conosco</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  // ——————————— NAVIGATION ———————————
+  let currentStep = 1;
+  const WPP = '5511972347829';
+
+  function goStep(to) {
+    if (to > currentStep && !validate(currentStep)) return;
+    if (to === 4) buildSummary();
+    document.getElementById('step-' + currentStep).style.display = 'none';
+    setProgress(currentStep, to);
+    document.getElementById('step-' + to).style.display = 'block';
+    currentStep = to;
+    document.getElementById('form-titulo') && document.getElementById('form-titulo').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function setProgress(from, to) {
+    for (let i = 1; i <= 4; i++) {
+      const dot = document.getElementById('dot-' + i);
+      const lbl = document.getElementById('lbl-' + i);
+      if (i < to) { dot.className = 'p-dot done'; dot.textContent = '✓'; lbl.className = 'p-label'; }
+      else if (i === to) { dot.className = 'p-dot active'; dot.textContent = i; lbl.className = 'p-label active'; }
+      else { dot.className = 'p-dot idle'; dot.textContent = i; lbl.className = 'p-label'; }
+    }
+    for (let i = 1; i <= 3; i++) {
+      const l = document.getElementById('line-' + i);
+      if (l) l.className = i < to ? 'p-line filled' : 'p-line';
+    }
+  }
+
+  // ——————————— VALIDATION ———————————
+  function validate(step) {
+    let ok = true;
+    if (step === 1) {
+      ok = chk('f-nome', 'e-nome', v => v.trim().split(' ').filter(Boolean).length >= 2) & ok;
+      ok = chk('f-cpf', 'e-cpf', v => v.replace(/\D/g,'').length === 11) & ok;
+      ok = chk('f-email', 'e-email', v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) & ok;
+      ok = chk('f-tel', 'e-tel', v => v.replace(/\D/g,'').length >= 10) & ok;
+    }
+    if (step === 2) {
+      ok = chk('f-estab', 'e-estab', v => v.trim().length > 0) & ok;
+      ok = chk('f-cnpj', 'e-cnpj', v => v.replace(/\D/g,'').length === 14) & ok;
+      ok = chk('f-tipo', 'e-tipo', v => v !== '') & ok;
+      ok = chk('f-horario', 'e-horario', v => v !== '') & ok;
+      ok = chk('f-dias', 'e-dias', v => v !== '') & ok;
+      ok = chk('f-cap', 'e-cap', v => v !== '') & ok;
+    }
+    if (step === 3) {
+      ok = chk('f-cep', 'e-cep', v => v.replace(/\D/g,'').length === 8) & ok;
+      ok = chk('f-uf', 'e-uf', v => v !== '') & ok;
+      ok = chk('f-cidade', 'e-cidade', v => v.trim().length > 0) & ok;
+      ok = chk('f-rua', 'e-rua', v => v.trim().length > 0) & ok;
+      ok = chk('f-num', 'e-num', v => v.trim().length > 0) & ok;
+      ok = chk('f-bairro', 'e-bairro', v => v.trim().length > 0) & ok;
+    }
+    return !!ok;
+  }
+
+  function chk(fid, eid, fn) {
+    const f = document.getElementById(fid);
+    const e = document.getElementById(eid);
+    if (fn(f.value)) { f.classList.remove('err'); f.classList.add('ok'); e.classList.remove('show'); return 1; }
+    else { f.classList.add('err'); f.classList.remove('ok'); e.classList.add('show'); return 0; }
+  }
+
+  // ——————————— SUMMARY ———————————
+  function buildSummary() {
+    const g = id => document.getElementById(id).value;
+    const tipoEl = document.getElementById('f-tipo');
+    const tipoTxt = tipoEl.options[tipoEl.selectedIndex]?.text || '';
+    const rows = [
+      ['Nome', g('f-nome')], ['CPF', g('f-cpf')], ['E-mail', g('f-email')], ['Telefone', g('f-tel')],
+      ['Estabelecimento', g('f-estab')], ['CNPJ', g('f-cnpj')], ['Tipo', tipoTxt],
+      ['Endereço', g('f-rua') + ', ' + g('f-num') + (g('f-comp') ? ' - ' + g('f-comp') : '') + ' — ' + g('f-bairro') + ', ' + g('f-cidade') + '/' + g('f-uf')]
+    ];
+    document.getElementById('summary-content').innerHTML = '<table style="width:100%;border-collapse:collapse;">' +
+      rows.map(([k,v]) => `<tr><td style="font-weight:600;color:rgba(0,0,0,0.75);width:36%;padding:3px 10px 3px 0;vertical-align:top;">${k}:</td><td style="padding:3px 0;">${h(v)}</td></tr>`).join('') + '</table>';
+  }
+
+  function h(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+  // ——————————— SUBMIT ———————————
+  document.getElementById('reg-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const termos = document.getElementById('f-termos');
+    const como = document.getElementById('f-como');
+    let ok = true;
+    if (!termos.checked) { document.getElementById('e-termos').classList.add('show'); ok = false; }
+    else document.getElementById('e-termos').classList.remove('show');
+    if (!como.value) { chk('f-como','e-como', v => v !== ''); ok = false; }
+    else { document.getElementById('e-como').classList.remove('show'); }
+    if (!ok) return;
+
+    const btn = document.getElementById('btn-submit');
+    document.getElementById('btn-txt').textContent = 'Enviando...';
+    document.getElementById('btn-spin').style.display = 'block';
+    btn.disabled = true;
+
+    setTimeout(() => {
+      const nome = document.getElementById('f-nome').value;
+      const tel = document.getElementById('f-tel').value;
+      const estab = document.getElementById('f-estab').value;
+      const cidade = document.getElementById('f-cidade').value;
+      const uf = document.getElementById('f-uf').value;
+      const msg = encodeURIComponent(
+        'Olá! Acabei de enviar minha inscrição para Ponto de Coleta Mercado Livre.\n\n' +
+        '📋 *Meu cadastro:*\n' +
+        '• Nome: ' + nome + '\n' +
+        '• Estabelecimento: ' + estab + '\n' +
+        '• Localização: ' + cidade + '/' + uf + '\n' +
+        '• Telefone: ' + tel + '\n\n' +
+        'Gostaria de confirmar o recebimento e saber os próximos passos!'
+      );
+      document.getElementById('wpp-success').href = 'https://wa.me/' + WPP + '?text=' + msg;
+      document.getElementById('form-container').style.display = 'none';
+      const ss = document.getElementById('success-screen');
+      ss.style.display = 'block';
+      ss.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 1800);
+  });
+
+  function resetForm() {
+    document.getElementById('reg-form').reset();
+    document.getElementById('success-screen').style.display = 'none';
+    document.getElementById('form-container').style.display = 'block';
+    document.getElementById('step-' + currentStep).style.display = 'none';
+    currentStep = 1;
+    document.getElementById('step-1').style.display = 'block';
+    setProgress(1, 1);
+    document.querySelectorAll('.form-input,.form-select,.form-textarea').forEach(el => el.classList.remove('err','ok'));
+    document.querySelectorAll('.field-err').forEach(el => el.classList.remove('show'));
+    document.getElementById('btn-txt').textContent = '🚀 Enviar Inscrição';
+    document.getElementById('btn-spin').style.display = 'none';
+    document.getElementById('btn-submit').disabled = false;
+  }
+
+  // ——————————— MASKS ———————————
+  document.getElementById('f-cpf').addEventListener('input', function() {
+    let v = this.value.replace(/\D/g,'').slice(0,11);
+    if (v.length > 9) v = v.replace(/(\d{3})(\d{3})(\d{3})(\d{0,2})/,'$1.$2.$3-$4');
+    else if (v.length > 6) v = v.replace(/(\d{3})(\d{3})(\d{0,3})/,'$1.$2.$3');
+    else if (v.length > 3) v = v.replace(/(\d{3})(\d{0,3})/,'$1.$2');
+    this.value = v;
+  });
+
+  document.getElementById('f-cnpj').addEventListener('input', function() {
+    let v = this.value.replace(/\D/g,'').slice(0,14);
+    if (v.length > 12) v = v.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{0,2})/,'$1.$2.$3/$4-$5');
+    else if (v.length > 8) v = v.replace(/(\d{2})(\d{3})(\d{3})(\d{0,4})/,'$1.$2.$3/$4');
+    else if (v.length > 5) v = v.replace(/(\d{2})(\d{3})(\d{0,3})/,'$1.$2.$3');
+    else if (v.length > 2) v = v.replace(/(\d{2})(\d{0,3})/,'$1.$2');
+    this.value = v;
+  });
+
+  document.getElementById('f-tel').addEventListener('input', function() {
+    let v = this.value.replace(/\D/g,'').slice(0,11);
+    if (v.length > 10) v = v.replace(/(\d{2})(\d{5})(\d{4})/,'($1) $2-$3');
+    else if (v.length > 6) v = v.replace(/(\d{2})(\d{4,5})(\d{0,4})/,'($1) $2-$3');
+    else if (v.length > 2) v = v.replace(/(\d{2})(\d{0,5})/,'($1) $2');
+    else v = v.replace(/(\d{0,2})/,'($1');
+    this.value = v;
+  });
+
+  document.getElementById('f-cep').addEventListener('input', function() {
+    let v = this.value.replace(/\D/g,'').slice(0,8);
+    if (v.length > 5) v = v.replace(/(\d{5})(\d{0,3})/,'$1-$2');
+    this.value = v;
+    if (v.replace(/\D/g,'').length === 8) {
+      fetch('https://viacep.com.br/ws/' + v.replace(/\D/g,'') + '/json/')
+        .then(r => r.json())
+        .then(d => {
+          if (!d.erro) {
+            const set = (id, val) => { const el = document.getElementById(id); if (el && val) { el.value = val; el.classList.add('ok'); } };
+            set('f-rua', d.logradouro);
+            set('f-bairro', d.bairro);
+            set('f-cidade', d.localidade);
+            if (d.uf) { document.getElementById('f-uf').value = d.uf; document.getElementById('f-uf').classList.add('ok'); }
+          }
+        }).catch(() => {});
+    }
+  });
+
+  // Clear error on change
+  document.querySelectorAll('.form-input,.form-select,.form-textarea').forEach(el => {
+    el.addEventListener('input', function() { if (this.value) this.classList.remove('err'); });
+  });
+</script>
+</body>
+</html>
